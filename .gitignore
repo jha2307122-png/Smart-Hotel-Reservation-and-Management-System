@@ -1,0 +1,21 @@
+# Maven build output
+target/
+**/target/
+*.class
+
+# IntelliJ IDEA & IDE configuration
+.idea/
+**/.idea/
+*.iml
+**/*.iml
+.vscode/
+
+# SQLite Database & Runtime files
+smart_hotel.db
+**/smart_hotel.db
+*.db
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
