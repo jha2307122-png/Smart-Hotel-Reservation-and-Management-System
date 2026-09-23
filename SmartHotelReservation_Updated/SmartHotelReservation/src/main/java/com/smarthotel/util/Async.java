@@ -1,0 +1,1 @@
+package com.smarthotel.util;import java.util.concurrent.*;public final class Async{private static final ExecutorService POOL=Executors.newFixedThreadPool(4);private Async(){}public static <T>CompletableFuture<T> run(java.util.function.Supplier<T>s){return CompletableFuture.supplyAsync(s,POOL);}public static void shutdown(){POOL.shutdown();}}
