@@ -1,0 +1,2 @@
+package com.smarthotel.model;
+public final class BookingBill implements Payable { private final double nightly; private final long nights; private final double service; private final double discount; public BookingBill(double nightly,long nights,double service,double discount){this.nightly=nightly;this.nights=nights;this.service=service;this.discount=discount;} public double calculateTotal(){return Math.max(0,nightly*nights+service-discount);} }
