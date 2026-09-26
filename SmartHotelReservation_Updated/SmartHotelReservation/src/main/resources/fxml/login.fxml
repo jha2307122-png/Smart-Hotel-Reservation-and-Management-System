@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<StackPane fx:id="loginRoot" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smarthotel.controller.LoginController" styleClass="login-page">
+    <BorderPane fx:id="loginPane">
+    <center>
+        <HBox alignment="CENTER" spacing="28" styleClass="login-shell">
+            <VBox maxWidth="500" spacing="18" alignment="CENTER_LEFT" styleClass="login-intro">
+                <Label text="SMART HOTEL" styleClass="login-brand"/>
+                <Label text="Reservation &amp; Management System" styleClass="login-tag"/>
+                <Label text="A professional hotel platform for secure administration, room availability, reservations, billing and customer services." wrapText="true" styleClass="login-feature"/>
+                <VBox spacing="10">
+                    <Label text="✓ Live room availability" styleClass="login-feature"/>
+                    <Label text="✓ Secure role-based access" styleClass="login-feature"/>
+                    <Label text="✓ SQLite database with shared data" styleClass="login-feature"/>
+                    <Label text="✓ Booking, check-in, check-out and billing" styleClass="login-feature"/>
+                </VBox>
+            </VBox>
+
+            <VBox fx:id="loginCard" maxWidth="430" spacing="14" styleClass="login-card">
+                <Label text="Welcome" styleClass="title"/>
+                <Label text="Choose your account type" styleClass="hint"/>
+
+                <HBox spacing="8" maxWidth="1.7976931348623157E308">
+                    <Button fx:id="adminTab" text="ADMIN / STAFF" onAction="#showAdmin" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="login-tab,active-tab"/>
+                    <Button fx:id="customerTab" text="CUSTOMER" onAction="#showCustomer" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="login-tab"/>
+                </HBox>
+
+                <Label fx:id="modeTitle" text="Admin / Staff Login" styleClass="section"/>
+                <Label fx:id="modeHint" text="Authorized staff can access hotel management features." styleClass="hint" wrapText="true"/>
+                <TextField fx:id="username" promptText="Username" maxWidth="1.7976931348623157E308"/>
+                <PasswordField fx:id="password" promptText="Password" maxWidth="1.7976931348623157E308"/>
+                <Button text="SIGN IN" onAction="#login" maxWidth="1.7976931348623157E308" styleClass="primary"/>
+                <Button fx:id="registerButton" text="Create Customer Account" onAction="#register" maxWidth="1.7976931348623157E308" styleClass="secondary"/>
+                <Label fx:id="message" styleClass="error" wrapText="true"/>
+                <Separator/>
+                <Label fx:id="demoLabel" text="" styleClass="hint" wrapText="true"/>
+            </VBox>
+        </HBox>
+    </center>
+    </BorderPane>
+</StackPane>
