@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smarthotel.controller.CustomerController" styleClass="page">
+ <top><HBox alignment="CENTER_LEFT" spacing="16" styleClass="topbar"><VBox spacing="2"><Label text="SMART HOTEL" styleClass="top-brand"/><Label text="Customer Portal" styleClass="nav-title"/></VBox><Region HBox.hgrow="ALWAYS"/><Label fx:id="welcome" text="Welcome" styleClass="nav-user"/><Button text="Logout" onAction="#logout" styleClass="danger"/></HBox></top>
+ <center><ScrollPane fitToWidth="true"><VBox spacing="18" styleClass="content">
+  <VBox spacing="3"><Label text="Book Your Stay" styleClass="title"/><Label text="View room photos, compare prices, book your room and request extra services." styleClass="hint"/></VBox>
+  <Label fx:id="quote" text="Welcome to Smart Hotel." styleClass="quote" wrapText="true"/>
+  <VBox spacing="10" styleClass="card">
+   <Label text="Find Available Rooms" styleClass="section"/>
+   <GridPane hgap="10" vgap="10"><columnConstraints><ColumnConstraints hgrow="ALWAYS"/><ColumnConstraints hgrow="ALWAYS"/><ColumnConstraints hgrow="ALWAYS"/><ColumnConstraints hgrow="ALWAYS"/><ColumnConstraints hgrow="ALWAYS"/></columnConstraints>
+    <DatePicker fx:id="checkIn" promptText="Check-in"/><DatePicker fx:id="checkOut" promptText="Check-out" GridPane.columnIndex="1"/><Spinner fx:id="guests" GridPane.columnIndex="2"/><ComboBox fx:id="roomType" GridPane.columnIndex="3"/><Button text="SEARCH" onAction="#searchRooms" styleClass="primary" GridPane.columnIndex="4"/>
+   </GridPane>
+   <TableView fx:id="roomTable" prefHeight="280"><columns><TableColumn fx:id="numCol" text="Room"/><TableColumn fx:id="catCol" text="Type"/><TableColumn fx:id="priceCol" text="Price / Night"/><TableColumn fx:id="capacityCol" text="Capacity"/><TableColumn fx:id="facilitiesCol" text="Facilities" prefWidth="260"/><TableColumn fx:id="statCol" text="Status"/></columns></TableView>
+   <HBox spacing="10"><Button text="VIEW ROOM PHOTO &amp; DETAILS" onAction="#viewRoom" styleClass="secondary"/><Label fx:id="nightlyPrice" text="Room: —" styleClass="section"/><Label fx:id="stayTotal" text="Total: —" styleClass="success" wrapText="true"/></HBox>
+   <HBox spacing="10"><ComboBox fx:id="paymentMethod" promptText="Payment method"/><Button text="BOOK SELECTED ROOM" onAction="#book" styleClass="primary"/><Button text="Refresh" onAction="#refresh" styleClass="secondary"/></HBox>
+   <Label text="Total shown above is the room cost for the complete stay (price per night × number of nights). Approved extra services are added after admin approval." styleClass="hint" wrapText="true"/>
+  </VBox>
+  <VBox spacing="10" styleClass="card"><Label text="My Reservations &amp; Bills" styleClass="section"/><TableView fx:id="bookings" prefHeight="230"><columns><TableColumn fx:id="bidCol" text="Booking"/><TableColumn fx:id="inCol" text="Check-in"/><TableColumn fx:id="outCol" text="Check-out"/><TableColumn fx:id="guestsCol" text="Guests"/><TableColumn fx:id="totalCol" text="Total Cost"/><TableColumn fx:id="bstatusCol" text="Status"/><TableColumn fx:id="paymentStatusCol" text="Payment"/></columns></TableView></VBox>
+  <VBox spacing="10" styleClass="card"><Label text="Extra Services" styleClass="section"/><Label text="Select a booking, choose services such as Laundry, Swimming Pool, Gym or Food, then wait for admin approval." styleClass="hint" wrapText="true"/>
+   <HBox spacing="10"><ComboBox fx:id="serviceChoice" promptText="Choose extra service" HBox.hgrow="ALWAYS"/><Spinner fx:id="serviceQty"/><Button text="REQUEST SERVICE" onAction="#requestService" styleClass="primary"/></HBox>
+   <TableView fx:id="serviceTable" prefHeight="190"><columns><TableColumn fx:id="serviceNameCol" text="Service"/><TableColumn fx:id="serviceQtyCol" text="Qty"/><TableColumn fx:id="serviceAmountCol" text="Amount"/><TableColumn fx:id="serviceStatusCol" text="Status"/><TableColumn fx:id="serviceMessageCol" text="Admin Message" prefWidth="360"/></columns></TableView>
+  </VBox>
+  <VBox spacing="10" styleClass="card"><Label text="Rate Your Stay" styleClass="section"/><HBox spacing="10"><ComboBox fx:id="ratingChoice" promptText="Rating"/><Button text="Submit Rating" onAction="#rateBooking" styleClass="primary"/></HBox><TextArea fx:id="reviewComment" promptText="Write your comment..." prefRowCount="3" wrapText="true"/><Label text="Select a booking above before submitting a rating." styleClass="hint"/></VBox>
+  <VBox spacing="10" styleClass="card"><Label text="My Profile" styleClass="section"/><GridPane hgap="10" vgap="10"><columnConstraints><ColumnConstraints hgrow="ALWAYS"/><ColumnConstraints hgrow="ALWAYS"/></columnConstraints><TextField fx:id="editName" promptText="Full name"/><TextField fx:id="editEmail" promptText="Email" GridPane.columnIndex="1"/><TextField fx:id="editPhone" promptText="Phone" GridPane.rowIndex="1"/><TextField fx:id="editAddress" promptText="Address" GridPane.columnIndex="1" GridPane.rowIndex="1"/></GridPane><HBox spacing="10"><Button text="Update Profile" onAction="#updateProfile" styleClass="primary"/><VBox spacing="2"><Label fx:id="profileEmail" text="" styleClass="hint"/><Label fx:id="profilePhone" text="" styleClass="hint"/><Label fx:id="profileAddress" text="" styleClass="hint"/></VBox></HBox></VBox>
+  <Label fx:id="status" text="Select a room or booking to begin." styleClass="success" wrapText="true"/>
+ </VBox></ScrollPane></center>
+</BorderPane>
